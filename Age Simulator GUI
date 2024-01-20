@@ -1,0 +1,47 @@
+getgenv().ageUp1500 = false;
+
+
+
+function doAge()
+    spawn(function ()
+        while ageUp1500 == true do
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/RexOYTz/yello/main/age%20up%20script'))()
+        wait()
+        end
+    end)
+end
+
+doAge()
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/GemstoneDev/Wally-V3-Backup/main/script/main.lua')))()
+
+local w = library:CreateWindow("AgeSimulator") -- Creates the window
+
+local b = w:CreateFolder("Age") -- Creates the folder(U will put here your buttons,etc)
+
+b:Button("Age Once",function()
+    game.ReplicatedStorage.Remotes.AgeUp:FireServer()
+    print("aged up!")
+end)
+
+b:Toggle("Age Up",function(bool)
+    getgenv().ageUp1500 = bool
+    print(enabled)
+    if bool then
+        doAge();
+    end
+end)
+
+
+
+
+
+
+
+
+
+b:Dropdown("Dropdown",{"A","B","C"},true,function(mob) --true/false, replaces the current title "Dropdown" with the option that t
+    print(mob)
+end)
+
+b:DestroyGui()
